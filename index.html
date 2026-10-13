@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuento Infantil Interactivo</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Librería PDF.js para leer el PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <!-- Librería PageFlip para el efecto de pasar página -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Érase una vez...</h1>
+        <div class="accessibility-toolbar">
+            <button id="btn-read" class="tool-btn" title="Escuchar cuento en voz alta">🔊 Leer en Voz Alta</button>
+            <button id="btn-zoom-in" class="tool-btn" title="Agrandar vista">🔍+ Agrandar</button>
+            <button id="btn-zoom-out" class="tool-btn" title="Achicar vista">🔍- Reducir</button>
+        </div>
+        <div id="loading">Cargando cuento mágico...</div>
+    </header>
+
+    <main class="main-container">
+        <!-- Botón página anterior -->
+        <button id="btn-prev" class="nav-btn left-btn" aria-label="Página anterior">❮</button>
+
+        <div class="book-container">
+            <div id="flip-book" class="flip-book"></div>
+        </div>
+
+        <!-- Botón página siguiente -->
+        <button id="btn-next" class="nav-btn right-btn" aria-label="Página siguiente">❯</button>
+    </main>
+
+    <footer class="ai-disclaimer">
+        <p>Este cuento fue creado con asistencia de IAG a través de Gemini apoyado para la creación de imágenes y el recurso de navegación que lo contiene.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
