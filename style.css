@@ -1,0 +1,215 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Fredoka', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fondo celeste pastel mágico estilo Valle Encantado */
+    background: linear-gradient(180deg, #d4f0ff 0%, #e6f7ff 50%, #d0f4de 100%);
+    background-attachment: fixed;
+    color: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Decoración mágica de fondo: Nubes y destellos */
+body::before {
+    content: "☁️  ✨  ☁️  ✨  ☁️  ✨";
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+    opacity: 0.5;
+    pointer-events: none;
+    letter-spacing: 40px;
+}
+
+.header {
+    text-align: center;
+    padding: 20px 15px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(168, 218, 220, 0.4);
+    border-bottom: 3px solid #a8dadc;
+    z-index: 10;
+}
+
+.header h1 {
+    font-size: 2.3rem;
+    color: #ff6b6b;
+    text-shadow: 2px 2px 0px #ffe66d;
+    margin-bottom: 12px;
+}
+
+.accessibility-toolbar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.tool-btn {
+    background-color: #ff9a9e;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(255, 154, 158, 0.4);
+}
+
+.tool-btn:hover {
+    background-color: #ff858a;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 14px rgba(255, 154, 158, 0.6);
+}
+
+.tool-btn:active {
+    transform: scale(0.95);
+}
+
+.tool-btn.reading {
+    background-color: #f39c12;
+}
+
+#loading {
+    margin-top: 10px;
+    color: #e67e22;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.main-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+}
+
+.book-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.flip-book {
+    display: none;
+    box-shadow: 0 12px 35px rgba(100, 149, 237, 0.3);
+    border-radius: 8px;
+}
+
+.page {
+    background-color: #ffffff;
+    border: solid 1px #e2e8f0;
+    overflow: hidden;
+}
+
+.page canvas {
+    width: 100%;
+    height: 100%;
+}
+
+/* Botones de navegación infantil estilo botón mágico */
+.nav-btn {
+    background-color: #a8e6cf;
+    color: #2d5a27;
+    border: 2px solid #81c784;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: 0 6px 15px rgba(129, 199, 132, 0.4);
+    transition: transform 0.2s, background-color 0.2s;
+    margin: 0 15px;
+}
+
+.nav-btn:hover {
+    background-color: #81c784;
+    color: white;
+    transform: scale(1.1);
+}
+
+.nav-btn:active {
+    transform: scale(0.9);
+}
+
+.stf__wrapper {
+    background-color: transparent !important;
+}
+
+/* Widget flotante de calificación con corazones */
+.rating-widget {
+    position: fixed;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px 12px;
+    border-radius: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border: 2px solid #ffb7b2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 100;
+}
+
+.rating-widget p {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #ff6b6b;
+    text-align: center;
+}
+
+.hearts-container {
+    display: flex;
+    flex-direction: column-reverse; /* Corazones verticalmente */
+    gap: 5px;
+}
+
+.heart-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #e0e0e0; /* Color inactivo */
+    transition: transform 0.2s, color 0.2s;
+    line-height: 1;
+}
+
+.heart-btn:hover,
+.heart-btn.active {
+    color: #ff4757; /* Color rojo/rosado cuando está activo */
+    transform: scale(1.2);
+}
+
+/* Declaración de IAG */
+.ai-disclaimer {
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 0.85rem;
+    color: #576574;
+    background: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    margin-top: auto;
+}
